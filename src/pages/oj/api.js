@@ -262,6 +262,13 @@ export default {
     return ajax('admin/contest/acm_helper', 'put', {
       data
     })
+  },
+  ContestProblemRejudge (id) {
+    return ajax('admin/problem/rejudge', 'get', {
+      params: {
+        id
+      }
+    })
   }
 }
 
