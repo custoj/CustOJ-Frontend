@@ -233,6 +233,13 @@ export default {
       }
     })
   },
+  problemRejudge (id) {
+    return ajax('admin/problem/rejudge', 'get', {
+      params: {
+        id
+      }
+    })
+  },
   updateSubmission (data) {
     return ajax('submission', 'put', {
       data
