@@ -152,7 +152,7 @@
                     content: 'Really want to Rejudge Problem?',
                     onOk: () => {
                       this.loading = true
-                      this.handleContestProblemRejudge(params.row.id)
+                      this.handleContestProblemRejudge(params.row._id, this.$route.params.contestID)
                       this.loading = false
                     }
                   })
@@ -168,8 +168,8 @@
         }
         this.ContestProblemRejudge_column = true
       },
-      handleContestProblemRejudge (id) {
-        api.ContestProblemRejudge(id).then(() => {
+      handleContestProblemRejudge (problemID, contestID) {
+        api.ContestProblemRejudge(problemID, contestID).then(() => {
           this.$success('Rejudge Successed')
         }, () => {
           this.$error('Rejudge Failed')

@@ -263,10 +263,11 @@ export default {
       data
     })
   },
-  ContestProblemRejudge (id) {
+  ContestProblemRejudge (Problemid, Contestid) {
     return ajax('admin/problem/rejudge', 'get', {
       params: {
-        id
+        contest_id: Contestid,
+        problem_id: Problemid
       }
     })
   }
