@@ -18,7 +18,7 @@
   </Panel>
 </template>
 <script>
-  import {mapState, mapGetters, mapActions} from 'vuex'
+  import {mapGetters} from 'vuex'
   import {USER_TYPE} from '@/utils/constants'
   import Pagination from '@oj/components/Pagination.vue'
   import api from '@oj/api'
@@ -149,10 +149,8 @@
     methods: {
       getSimilarList () {
         let params = this.$route.params.contestID
-        api.ContestRunCheckSimilar(params).then(
-          // this.$success('Get SimilarList Successed')
-        ).catch(
-          this.$error('Get SimilarList Failed')
+        api.ContestRunCheckSimilar(params).then(res =>
+          this.$success('Success')
         )
       },
       showSimilarList () {
@@ -209,8 +207,6 @@
         this.SimilarInfo = ranges
         this.total = ranges.length
         this.showSimilarList()
-      }).catch(() => {
-        this.$error('Get SimilarList Failed')
       })
     },
     beforeDestroy () {

@@ -172,7 +172,6 @@
         api.ContestProblemRejudge(problemID, contestID).then(() => {
           this.$success('Rejudge Successed')
         }, () => {
-          this.$error('Rejudge Failed')
         })
       }
     },
