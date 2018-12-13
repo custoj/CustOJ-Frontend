@@ -294,6 +294,13 @@ export default {
     return ajax('export_problem', 'post', {
       data
     })
+  },
+  ContestRunCheckSimilar (Contestid) {
+    return ajax('contest_check_similar', 'get', {
+      params: {
+        contest_id: Contestid
+      }
+    })
   }
 }
 
