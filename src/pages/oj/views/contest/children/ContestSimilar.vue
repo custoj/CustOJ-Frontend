@@ -17,7 +17,6 @@
                 show-sizer></pagination>
   </Panel>
 </template>
-
 <script>
   import {mapState, mapGetters, mapActions} from 'vuex'
   import {USER_TYPE} from '@/utils/constants'
