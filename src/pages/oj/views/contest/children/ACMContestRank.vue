@@ -66,10 +66,11 @@
         contestID: '',
         columns: [
           {
+            title: 'Rank',
             align: 'center',
             width: 60,
             render: (h, params) => {
-              return h('span', {}, params.index + (this.page - 1) * this.limit + 1)
+              return h('span', {}, params.row.rank)
             }
           },
           {
