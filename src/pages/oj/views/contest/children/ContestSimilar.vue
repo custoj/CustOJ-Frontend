@@ -22,7 +22,7 @@
   import {USER_TYPE} from '@/utils/constants'
   import Pagination from '@oj/components/Pagination.vue'
   import api from '@oj/api'
-  import { types } from '../../../../../store'
+  import {types} from '../../../../../store'
 
   export default {
     name: 'ContestSimilar',
@@ -39,7 +39,21 @@
         contestID: '',
         columns: [
           {
-            title: 'Problem',
+            renderHeader: (h) => {
+              return h('a', {
+                style: {
+                  display: 'inline-block',
+                  color: '#495060',
+                  'max-width': '150px'
+                },
+                on: {
+                  click: () => {
+                    this.sortByKey(this.SimilarInfo, 'problem_id', 0)
+                    this.showSimilarList()
+                  }
+                }
+              }, 'Problem')
+            },
             align: 'center',
             render: (h, {row}) => {
               return h('a', {
@@ -61,7 +75,21 @@
             }
           },
           {
-            title: 'Username A',
+            renderHeader: (h) => {
+              return h('a', {
+                style: {
+                  display: 'inline-block',
+                  color: '#495060',
+                  'max-width': '150px'
+                },
+                on: {
+                  click: () => {
+                    this.sortByKey(this.SimilarInfo, 'user_a', 0)
+                    this.showSimilarList()
+                  }
+                }
+              }, 'Username A')
+            },
             align: 'center',
             render: (h, {row}) => {
               return h('a', {
@@ -74,7 +102,7 @@
                   click: () => {
                     this.$router.push({
                       name: 'contest-submission-list',
-                      query: {username: row.username}
+                      query: {username: row.user_a}
                     })
                   }
                 }
@@ -99,7 +127,21 @@
             }
           },
           {
-            title: 'Username B',
+            renderHeader: (h) => {
+              return h('a', {
+                style: {
+                  display: 'inline-block',
+                  color: '#495060',
+                  'max-width': '150px'
+                },
+                on: {
+                  click: () => {
+                    this.sortByKey(this.SimilarInfo, 'user_b', 0)
+                    this.showSimilarList()
+                  }
+                }
+              }, 'Username B')
+            },
             align: 'center',
             render: (h, {row}) => {
               return h('a', {
@@ -112,7 +154,7 @@
                   click: () => {
                     this.$router.push({
                       name: 'contest-submission-list',
-                      query: {username: row.username}
+                      query: {username: row.user_b}
                     })
                   }
                 }
@@ -137,7 +179,21 @@
             }
           },
           {
-            title: 'Similarity',
+            renderHeader: (h) => {
+              return h('a', {
+                style: {
+                  display: 'inline-block',
+                  color: '#495060',
+                  'max-width': '150px'
+                },
+                on: {
+                  click: () => {
+                    this.sortByKey(this.SimilarInfo, 'similarity', 1)
+                    this.showSimilarList()
+                  }
+                }
+              }, 'Similarity')
+            },
             align: 'center',
             render: (h, {row}) => {
               return h('span', String(row.similarity) + '%')
@@ -149,7 +205,7 @@
     methods: {
       getSimilarList () {
         let params = this.$route.params.contestID
-        api.ContestRunCheckSimilar(params).then(res =>
+        api.ContestRunCheckSimilar(params).then(
           this.$success('Success')
         )
       },
@@ -172,12 +228,16 @@
         this.DispSimilarInfo = pageInfo
         this.loadingTable = false
       },
-      sortByKey (array, key) {
-        return array.sort(function (a, b) {
-          var x = a[key]
-          var y = b[key]
+      sortByKey (array, key, desc) {
+        array.sort(function (a, b) {
+          let x = a[key]
+          let y = b[key]
           return ((x < y) ? -1 : ((x > y) ? 1 : 0))
         })
+        if (desc === 1) {
+          array.reverse()
+        }
+        return array
       }
     },
     computed: {
@@ -202,8 +262,11 @@
         let data = res.data.data
         let ranges = []
         for (let v of data.similarity_check_result) {
-          ranges.push(v)
+          if (v['user_a'][0] !== '*' && v['user_b'][0] !== '*' && v['user_a'] !== 'root' && v['user_b'] !== 'root') {
+            ranges.push(v)
+          }
         }
+        this.sortByKey(ranges, 'similarity', 1)
         this.SimilarInfo = ranges
         this.total = ranges.length
         this.showSimilarList()
