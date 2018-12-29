@@ -66,10 +66,11 @@
         contestID: '',
         columns: [
           {
+            title: 'Rank',
             align: 'center',
             width: 60,
             render: (h, params) => {
-              return h('span', {}, params.index + (this.page - 1) * this.limit + 1)
+              return h('span', {}, params.row.rank)
             }
           },
           {
@@ -304,7 +305,7 @@
       },
       parseTotalTime (totalTime) {
         let m = moment.duration(totalTime, 's')
-        return [Math.floor(m.asHours()), m.minutes(), m.seconds()].join(':')
+        return [Math.floor(m.asDays() * 24) + Math.floor(m.asHours()), m.minutes(), m.seconds()].join(':')
       },
       downloadRankCSV () {
         utils.downloadFile(`contest_rank?download_csv=1&contest_id=${this.$route.params.contestID}&force_refrash=${this.forceUpdate ? '1' : '0'}`)

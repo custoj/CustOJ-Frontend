@@ -269,6 +269,28 @@ export default {
     return ajax('admin/contest/acm_helper', 'put', {
       data
     })
+  },
+  ContestProblemRejudge (Problemid, Contestid) {
+    return ajax('admin/problem/rejudge', 'get', {
+      params: {
+        contest_id: Contestid,
+        problem_id: Problemid
+      }
+    })
+  },
+  ContestRunCheckSimilar (Contestid) {
+    return ajax('admin/contest_check_similar', 'get', {
+      params: {
+        contest_id: Contestid
+      }
+    })
+  },
+  ContestGetSimilarList (Contestid) {
+    return ajax('contest/get_similar', 'get', {
+      params: {
+        contest_id: Contestid
+      }
+    })
   }
 }
 
