@@ -66,6 +66,7 @@ export const m = {
   Memory_limit: '内存限制',
   Difficulty: '难度',
   Visible: '是否可见',
+  PE_ignored: '是否忽略行末空格/换行',
   Languages: '可选编程语言',
   Input_Samples: '输入样例',
   Output_Samples: '输出样例',
