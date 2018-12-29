@@ -70,8 +70,8 @@
             <el-form-item :label="$t('m.PE_ignored')">
               <el-switch
                 v-model="problem.pe_ignored"
-                active-text="PE"
-                inactive-text="No PE">
+                active-text="Yes"
+                inactive-text="No">
               </el-switch>
             </el-form-item>
           </el-col>

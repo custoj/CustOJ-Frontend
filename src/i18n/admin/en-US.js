@@ -66,7 +66,7 @@ export const m = {
   Memory_limit: 'Memory limit',
   Difficulty: 'Difficulty',
   Visible: 'Visible',
-  PE_ignored: 'Ignore end-of-line Space/Break',
+  PE_ignored: 'Ignore blank line/End-of-line space',
   Languages: 'Languages',
   Input_Samples: 'Input Samples',
   Output_Samples: 'Output Samples',
