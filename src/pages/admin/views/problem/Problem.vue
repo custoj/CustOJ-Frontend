@@ -57,12 +57,21 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="6">
+          <el-col :span="4">
             <el-form-item :label="$t('m.Visible')">
               <el-switch
                 v-model="problem.visible"
                 active-text=""
                 inactive-text="">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item :label="$t('m.PE_ignored')">
+              <el-switch
+                v-model="problem.pe_ignored"
+                active-text="Yes"
+                inactive-text="No">
               </el-switch>
             </el-form-item>
           </el-col>
@@ -301,6 +310,7 @@
           memory_limit: 256,
           difficulty: 'Low',
           visible: true,
+          pe_ignored: true,
           tags: [],
           languages: [],
           template: {},
