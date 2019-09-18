@@ -40,6 +40,7 @@ export const m = {
   Rankings: 'Rankings',
   Overview: 'Overview',
   Admin_Helper: 'Admin Helper',
+  Similar_Check: 'Similar Checker',
   // ContestProblemList
   Problems_List: 'Problems List',
 

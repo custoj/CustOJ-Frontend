@@ -69,6 +69,7 @@ export const m = {
   Memory_limit: '記憶體限制',
   Difficulty: '難度',
   Visible: '是否可見',
+  PE_ignored: '忽略格式',
   Languages: '可選程式語言',
   Input_Samples: '輸入範例',
   Output_Samples: '輸出範例',

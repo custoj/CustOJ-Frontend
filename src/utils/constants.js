@@ -64,6 +64,12 @@ export const JUDGE_STATUS = {
     type: 'info'
   },
   '9': {
+    name: 'Presentation Error',
+    short: 'PE',
+    color: 'yellow',
+    type: 'info'
+  },
+  '10': {
     name: 'Submitting',
     color: 'yellow',
     type: 'warning'

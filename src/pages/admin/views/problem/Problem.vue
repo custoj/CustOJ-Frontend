@@ -57,7 +57,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="4">
+          <el-col :span="3">
             <el-form-item :label="$t('m.Visible')">
               <el-switch
                 v-model="problem.visible"
@@ -66,10 +66,19 @@
               </el-switch>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="3">
             <el-form-item :label="$t('m.ShareSubmission')">
               <el-switch
                 v-model="problem.share_submission"
+                active-text=""
+                inactive-text="">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+          <el-col :span="2">
+            <el-form-item :label="$t('m.PE_ignored')">
+              <el-switch
+                v-model="problem.pe_ignored"
                 active-text=""
                 inactive-text="">
               </el-switch>
@@ -333,6 +342,7 @@
           difficulty: 'Low',
           visible: true,
           share_submission: false,
+          pe_ignored: true,
           tags: [],
           languages: [],
           template: {},

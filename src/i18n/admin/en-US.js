@@ -69,6 +69,7 @@ export const m = {
   Memory_limit: 'Memory limit',
   Difficulty: 'Difficulty',
   Visible: 'Visible',
+  PE_ignored: 'Ignore Presentation',
   Languages: 'Languages',
   Input_Samples: 'Input Samples',
   Output_Samples: 'Output Samples',

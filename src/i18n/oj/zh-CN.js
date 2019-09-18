@@ -48,7 +48,8 @@ export const m = {
   Submissions: '提交信息',
   Rankings: 'Rank排名',
   Overview: '概要',
-  Admin_Helper: '管理员助手',
+  Admin_Helper: '气球助手',
+  Similar_Check: '相似度检测',
   // ContestProblemList.vue
   Problems_List: '问题列表',
 

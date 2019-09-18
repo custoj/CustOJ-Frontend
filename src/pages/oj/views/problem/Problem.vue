@@ -235,7 +235,7 @@
         submissionId: '',
         submitted: false,
         result: {
-          result: 9
+          result: 10
         },
         problem: {
           title: '',
@@ -399,7 +399,7 @@
           return
         }
         this.submissionId = ''
-        this.result = {result: 9}
+        this.result = {result: 10}
         this.submitting = true
         let data = {
           problem_id: this.problem.id,
