@@ -64,7 +64,6 @@
     },
     mixins: [ContestRankMixin],
     data () {
-      var stars = 0
       return {
         total: 0,
         page: 1,
