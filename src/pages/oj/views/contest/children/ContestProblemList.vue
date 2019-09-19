@@ -5,10 +5,12 @@
       <Table v-if="contestRuleType == 'ACM' || OIContestRealTimePermission"
              :columns="ACMTableColumns"
              :data="problems"
+             @on-row-click="goContestProblem"
              no-data-text="No Problems"></Table>
       <Table v-else
              :data="problems"
              :columns="OITableColumns"
+             @on-row-click="goContestProblem"
              no-data-text="No Problems"></Table>
     </Panel>
   </div>
@@ -74,7 +76,6 @@
               this.addStatusColumn(this.ACMTableColumns, res.data.data)
             }
           }
-          this.adjustContestProblemEnterColumn()
           this.adjustContestProblemRejudgeColumn()
         })
       },
@@ -86,38 +87,6 @@
             problemID: row._id
           }
         })
-      },
-      adjustContestProblemEnterColumn () {
-        if (this.ContestProblemEnter_column) {
-          return
-        }
-        const EnterColumn = {
-          title: 'Option',
-          fixed: 'right',
-          align: 'center',
-          width: 120,
-          render: (h, params) => {
-            return h('Button', {
-              props: {
-                type: 'primary',
-                size: 'small'
-              },
-              on: {
-                click: () => {
-                  this.loading = true
-                  this.goContestProblem(params.row)
-                  this.loading = false
-                }
-              }
-            }, 'Enter')
-          }
-        }
-        if (this.contestRuleType === 'ACM') {
-          this.ACMTableColumns.push(EnterColumn)
-        } else if (this.contestRuleType === 'OI') {
-          this.OITableColumns.push(EnterColumn)
-        }
-        this.ContestProblemEnter_column = true
       },
       adjustContestProblemRejudgeColumn () {
         if (this.ContestProblemRejudge_column || !this.ContestProblemRejudgeColumnVisible) {
@@ -135,14 +104,15 @@
                 size: 'small'
               },
               on: {
-                click: () => {
+                click: (event) => {
+                  event.stopPropagation()
                   this.$Modal.confirm({
                     width: 350,
                     loading: false,
                     title: 'Rejudge Comfirm',
                     cancelText: 'Cancel',
                     okText: 'Rejudge',
-                    content: 'Really want to Rejudge Problem?',
+                    content: 'Really want to rejudge problem?',
                     onOk: () => {
                       this.loading = true
                       this.handleContestProblemRejudge(params.row._id, this.$route.params.contestID)
