@@ -27,6 +27,7 @@ export const m = {
   Compile_Error: '無法編譯您的原始碼，請點選連結以檢視編譯器的輸出。',
   Accepted: '您的解題方法是正確的。',
   Wrong_Answer: '您程式的輸出結果與標準程式的答案不符。',
+  Presentation_Error: '您程式已接近正確，但輸出格式與標準程式不符。',
   Runtime_Error: '您的程式異常終止，可能的原因是: 記憶體區段錯誤、被零除或結束程式時傳回非 0 的值。',
   Time_Limit_Exceeded: '您的程式使用的 CPU 時間已超出限制，Java 有三倍的時間限制。',
   Memory_Limit_Exceeded: '程式實際使用的記憶體已超出限制。',

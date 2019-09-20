@@ -70,7 +70,7 @@
     <Panel>
       <span slot="title">{{$t('m.Import_User')}}
         <el-popover placement="right" trigger="hover">
-          <p>Only support csv file without headers, in the format of username,password,email,realname,school,mood.</p>
+          <p>Only support csv file without headers, in the format of username,password,email,realname,school,mood(this is used as seat).</p>
           <i slot="reference" class="el-icon-fa-question-circle import-user-icon"></i>
         </el-popover>
       </span>

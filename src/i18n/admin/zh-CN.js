@@ -7,7 +7,7 @@ export const m = {
   System_Config: '系统配置',
   Judge_Server: '判题服务器',
   Prune_Test_Case: '测试用例',
-  Problem: '问题',
+  Problem: '题库',
   FromFile: '读取文件',
   ToFile: '写入文件',
   ShareSubmission: '分享提交',

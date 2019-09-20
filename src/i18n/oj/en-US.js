@@ -27,6 +27,7 @@ export const m = {
   Compile_Error: "Failed to compile your source code. Click on the link to see compiler's output.",
   Accepted: 'Congratulations. Your solution is correct.',
   Wrong_Answer: "Your program's output doesn't match judger's answer.",
+  Presentation_Error: "Your program is almost correct, but doesn't match the format of judger's answer.",
   Runtime_Error: 'Your program terminated abnormally. Possible reasons are: segment fault, divided by zero or exited with code other than 0.',
   Time_Limit_Exceeded: 'The CPU time your program used has exceeded limit. Java has a triple time limit.',
   Memory_Limit_Exceeded: 'The memory your program actually used has exceeded limit.',

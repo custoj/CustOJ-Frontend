@@ -36,6 +36,7 @@ export const m = {
   Compile_Error: '无法编译您的源代码，点击链接查看编译器的输出。',
   Accepted: '你的解题方法是正确的。',
   Wrong_Answer: '你的程序输出结果与判题程序的答案不符。',
+  Presentation_Error: '你的程序已经接近正确，但输出格式与答案不符。',
   Runtime_Error: '您的程序异常终止，可能的原因是：段错误，被零除或用非0的代码退出程序。',
   Time_Limit_Exceeded: '您的程序使用的CPU时间已超出限制，Java有三倍的时间限制。',
   Memory_Limit_Exceeded: '程序实际使用的内存已超出限制。',

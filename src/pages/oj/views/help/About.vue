@@ -22,6 +22,7 @@
       </li>
           <li><b>Accepted</b> :	{{$t('m.Accepted')}}</li>
           <li><b>Wrong Answer</b> :	{{$t('m.Wrong_Answer')}}</li>
+          <li><b>Presentation Error</b> :	{{$t('m.Presentation_Error')}}</li>
           <li>
             <b>Runtime Error</b>
             :	{{$t('m.Runtime_Error')}}
