@@ -1,41 +1,37 @@
 language: node_js
 node_js:
-  - 8.12.0
+- 8.12.0
 sudo: required
 services:
-  - docker
+- docker
 env:
   global:
-    - CXX=g++-4.8
+  - CXX=g++-4.8
   matrix:
-    - USE_SENTRY=1
-#    - USE_SENTRY=0
+  - USE_SENTRY=1
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
 before_install:
-  - docker pull getsentry/sentry-cli
-
+- docker pull getsentry/sentry-cli
 script:
-  - npm install
-  - npm run build:dll
-  - npm run build
-
+- npm install
+- npm run build:dll
+- npm run build
 before_deploy:
-  - bash deploy/sentry_release.sh
-  - find dist/ -type f -name "*.map" -delete
-  - zip -r dist.zip dist
-
+- bash deploy/sentry_release.sh
+- find dist/ -type f -name "*.map" -delete
+- zip -r dist.zip dist
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: I+BjkiPd+7XnMo1qWFhyz2xqElBLlGuCx1ZamvEa61zk4HPAnfWDPvpxXWihLdE4WDIkrOTRQ6Nh6GlVz+2uFugtdAlrxEWjU3bhadf5hAPNL2faNd52CN2qRNOuaWZmIkY4KUDmKoxvcFVQCKqMCxpghlNT7IJLwaC5wjogMeQKERXSa4rXl/ZGHdZzpkPo8SIEIy7hwQcHDl0ckm3t8wlXe6/xCRR2YoI3enZE15oJ15PChEcYbI6kUHNg3iIAddAAykqU0PnBtGSaPkl2JU90f4Rs62wW626wXyBs39ZU2rSbooyKF7OgFtS7KeTbYxyINBta8JH45plE/HVB3U3wy/8dBneZYr6ySGtSZSV10ortW59Al6Pifyo1na6tgkXSrckUOh1HFSiOsN6k46RXo6T1L1w1P8cUCJ2WYJksHJqBXnQmKbol9x3Gz6fQHR6yA5ToczKmg2ow549Q3g3oRb6RjRzXNkYu9sAZ2mhQ1fIjm7GkYPQvHzze+qwBxeX/ysFwIUNjUnK6u6EZunShz6fF9NEsDxzfUXPDOfB28MmxGkIi6TuT21F8tKfCG0C0CqLWBBve2agU9gutvIA1aY9i5K0YnlXPah1NYYzDPlk1RepWzJrq9VzGz3HxwY++cm6vR/7o9V+3WVpMIWHjnYwDTpK7pfm3VYbiLlg=
+  secure: nnx5svwGAnGx+51rLSDQi1BIByjeZkrvH9MYpVfn373MNi4+jzyikUb0Q740yZlz/dT/j56YWiEQuYnU8J6uze13cYqjigcR/JS1mosv4nSE5WfDc0djoL1dJzBO4s5YdnwpxJa2X6iY+TuTDS76v18YqhN5rp0yxmfNQshlQmtMAje9Ha9lespaHcNboBcgdXfNle+sthUzLy/FnaD+YzwC5ZTzQhdBzLqwYuh/8u0JSv9uCCXM4sZcXDNb/gun9yElFa5P1fyMVCWT1cZxsV3NyEaAedNfRf+YqMqW/v9TerErwJJ46zoWNWWmFZnwooSl7bkkTRW/ZVxOUxHe9gAaaGevTiXGUYGgEr4lKQ9kdgtPN34xAqkkOITKMcN0heAnTiSSMnP+99pfZZyA4/2aiHJH2Du+Ihg2Pe5cuHG85zSwE8wgT2ImJCm9BjOnOAife8rSlKd63OKL0qWssCQjpbgq9hflY+j3Edsjh9D1lzGFHnGIvDF/RoBp17XURfaQCaMLNAuoRha4HlsffTJsZ+W21aB8tIcY+slr2H0O8fkljquTSW+Wl1vNGOxlG+ylLrkMq77bjU5WeDm6tFFZmvx6fF38n3HLDyQ4P+ygweZAy06lB9Jm1s+wEtezrcBYgViekgKHVYI/AE8cCyVWitzuFmYzTSD86MOvcfg=
   file: dist.zip
   on:
-    repo: QingdaoU/OnlineJudgeFE
+    repo: custoj/CustOJ-Frontend
     all_branches: true
     tags: true
