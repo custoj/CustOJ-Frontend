@@ -56,6 +56,7 @@ export const m = {
   About: 'About',
   Judger: 'Judger',
   FAQ: 'FAQ',
+  IDE: 'Debug Run',
   Login: 'Login',
   Register: 'Register',
   MyHome: 'Home',

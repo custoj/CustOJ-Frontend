@@ -1,16 +1,16 @@
 <template>
   <div id="header">
-    <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
+    <Menu v-if="menuShow" theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
       <div class="logo"><span>{{website.website_name}}</span></div>
       <Menu-item name="/">
         <Icon type="home"></Icon>
         {{$t('m.Home')}}
       </Menu-item>
-      <Menu-item name="/problems">
+      <Menu-item name="/problem">
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
-      <Menu-item name="/contests">
+      <Menu-item name="/contest">
         <Icon type="trophy"></Icon>
         {{$t('m.Contests')}}
       </Menu-item>
@@ -30,6 +30,10 @@
           {{$t('m.OI_Rank')}}
         </Menu-item>
       </Submenu>
+      <Menu-item name="/ide">
+        <Icon type="code"></Icon>
+        {{$t('m.IDE')}}
+      </Menu-item>
       <Submenu name="about">
         <template slot="title">
           <Icon type="information-circled"></Icon>
@@ -90,13 +94,24 @@
       login,
       register
     },
+    data () {
+      return {
+        menuShow: true
+      }
+    },
     mounted () {
       this.getProfile()
     },
     methods: {
       ...mapActions(['getProfile', 'changeModalStatus']),
       handleRoute (route) {
-        if (route && route.indexOf('admin') < 0) {
+        if (route.indexOf('ide') >= 0) {
+          console.log(this.$route.path)
+          window.open('http://oj.cust.edu.cn/ide/')
+          this.menuShow = false
+          this.$nextTick(() => { this.menuShow = true })
+          // this.$router.go(0)
+        } else if (route && route.indexOf('admin') < 0) {
           this.$router.push(route)
         } else {
           window.open('/admin/')

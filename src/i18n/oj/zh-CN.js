@@ -65,6 +65,7 @@ export const m = {
   About: '关于',
   Judger: '判题解释',
   FAQ: '常见问题',
+  IDE: '调试&运行',
   Login: '登录',
   Register: '注册',
   MyHome: '我的主页',

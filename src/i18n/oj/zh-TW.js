@@ -56,6 +56,7 @@ export const m = {
   About: '關於',
   Judger: 'Judge 說明',
   FAQ: '常見問題',
+  IDE: '偵錯&運行',
   Login: '登入',
   Register: '註冊',
   MyHome: '我的首頁',
