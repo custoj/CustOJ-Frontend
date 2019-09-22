@@ -65,7 +65,8 @@
           {{$t('m.Rankings')}}
         </VerticalMenu-item>
 
-        <VerticalMenu-item :route="{name: 'similar-checker', params: {contestID: contestID}}">
+        <VerticalMenu-item v-if="showSimilarChecker"
+                           :route="{name: 'similar-checker', params: {contestID: contestID}}">
           <Icon type="ios-pulse"></Icon>
           {{$t('m.Similar_Check')}}
         </VerticalMenu-item>
@@ -177,6 +178,9 @@
         if (this.contestStatus) {
           return CONTEST_STATUS_REVERSE[this.contestStatus].color
         }
+      },
+      showSimilarChecker () {
+        return this.isContestAdmin
       },
       showAdminHelper () {
         return this.isContestAdmin && this.contestRuleType === 'ACM'
