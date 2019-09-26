@@ -107,7 +107,7 @@
       handleRoute (route) {
         if (route.indexOf('ide') >= 0) {
           console.log(this.$route.path)
-          window.open('http://oj.cust.edu.cn/ide/')
+          window.open('/ide/')
           this.menuShow = false
           this.$nextTick(() => { this.menuShow = true })
           // this.$router.go(0)
